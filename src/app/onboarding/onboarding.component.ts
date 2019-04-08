@@ -1,15 +1,16 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import M from "materialize-css";
 import ls from "../util/ls";
 import { lskeys } from "../data/lskeys";
 
 @Component({
-    selector: "onboarding",
-    templateUrl: "./onboarding.component.html",
-    styleUrls: ["./onboarding.component.css"]
+  selector: 'onboarding',
+  templateUrl: './onboarding.component.html',
+  styleUrls: ['./onboarding.component.css']
 })
-export class OnboardingComponent {
-    private modal;
+export class OnboardingComponent implements OnInit {
+
+  private modal;
     public hideModal = false;
     constructor() {}
     ngOnInit() {

@@ -1,6 +1,6 @@
-import { Component, ChangeDetectorRef } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { TranslationService } from "../services/translation.service";
-import {parseString, toHTML} from "./parser";
+import { parseString, toHTML } from "./parser";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 
 enum PanType {
@@ -18,15 +18,16 @@ enum Action {
 }
 
 @Component({
-    selector: "card",
-    templateUrl: "./card.component.html",
-    styleUrls: ["./card.component.css"],
-    providers: [
+  selector: 'card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css'],
+   providers: [
         TranslationService
     ]
 })
-export class CardComponent {
-    public panType: PanType = PanType.NONE;
+
+export class CardComponent implements OnInit {
+  public panType: PanType = PanType.NONE;
     private scrollX: number = 0;
     private scrollY: number = 0;
     private lastEnd: number = -Infinity;
@@ -143,4 +144,8 @@ export class CardComponent {
     getScrollY() {
         return this.scrollY;
     }
+
+   ngOnInit() {
+  } 
+
 }

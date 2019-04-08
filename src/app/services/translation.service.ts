@@ -72,7 +72,7 @@ export class TranslationService {
         for (let cb of callbacks) {
             cb(score);
         }
-        
+
         this.http.get(api.root + api.submit + bld + toQueryString({
             client: this.appService.getClientID(),
             stringid: this.strings[0].id,

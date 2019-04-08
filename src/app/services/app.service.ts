@@ -73,7 +73,7 @@ export class AppService {
         if (this.nickIsValid(ls.getItem(lskeys.USER))) {
             this.setNickname(ls.getItem(lskeys.USER));
         }
-        
+
         let bld = this.getLang().bld;
         // Because consistency
         if (bld === "svse") bld = "sv-SE";

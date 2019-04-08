@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import M from "materialize-css";
-// import { AppService } from "../services/app.service";
+import { AppService } from "../../services/app.service";
 
 @Component({
   selector: 'header-right',
@@ -9,7 +9,7 @@ import M from "materialize-css";
 })
 export class HeaderRightComponent implements OnInit {
 
-  constructor() { }
+  constructor(public appService: AppService) {}
 
   ngOnInit() {
   	M.Dropdown.init(document.getElementById("user-dropdown"), {
@@ -18,7 +18,7 @@ export class HeaderRightComponent implements OnInit {
         });
     }
     changeNick() {
-     //   this.appService.setNickname(prompt("What would you like your new nickname to be?"));
+        this.appService.setNickname(prompt("What would you like your new nickname to be?"));
     }
 
 }

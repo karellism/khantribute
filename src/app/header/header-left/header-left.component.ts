@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import M from "materialize-css";
-// import { AppService } from "../services/app.service";
+import { AppService } from "../../services/app.service";
 
 @Component({
   selector: 'header-left',
@@ -11,23 +11,22 @@ import M from "materialize-css";
 
 export class HeaderLeftComponent implements OnInit {
 
-   constructor() { }
+    constructor(public appService: AppService) {}
 
     ngOnInit() {
-         M.Dropdown.init(document.getElementById("lang-dropdown"), {
-            alignment: "left",
+         M.Dropdown.init(document.getElementById("left-dropdown"), {
+           // alignment: "left",
             constrainWidth: false
         });
     }
     setLang(i) {
-        // this.appService.setLang(i);
+         this.appService.setLang(i);
     }
 
 }
+
 /*
-import { Component, OnInit } from "@angular/core";
-import M from "materialize-css";
-import { AppService } from "../services/app.service";
+
 
 @Component({
     selector: "lang-dropdown",

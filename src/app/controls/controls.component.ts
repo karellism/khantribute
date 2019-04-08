@@ -1,14 +1,15 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { TranslationService } from "../services/translation.service";
 
 @Component({
-    selector: "controls",
-    templateUrl: "./controls.component.html",
-    styleUrls: ["./controls.component.css"],
-    providers: [ TranslationService ]
+  selector: 'controls',
+  templateUrl: './controls.component.html',
+  styleUrls: ['./controls.component.css'],
+  providers: [ TranslationService ]
 })
-export class ControlsComponent {
-    constructor(private translationService: TranslationService) {}
+export class ControlsComponent implements OnInit {
+
+  constructor(private translationService: TranslationService) {}
     approve() {
         this.translationService.approveString();
     }
@@ -21,4 +22,7 @@ export class ControlsComponent {
     skip() {
         this.translationService.skipString();
     }
+
+  ngOnInit() {
+  }
 }
