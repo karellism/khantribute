@@ -1,0 +1,27 @@
+<ul id="header-dropdown-content" class="header-dropdown">
+    <li class="nickname">
+        <span class="black-text">{{appService.getNickname()}}
+            <span class="badge blue white-text" data-badge-caption="Points">{{appService.getUserScore()}}</span>
+        </span>
+    </li>
+    <li class="divider" tabindex="-1"></li>
+    <li>
+        <a href="javascript:void(0);" class="black-text" (click)="changeNick()">Change Nickname</a>
+    </li>
+    <li>
+        <a href="#" class="black-text">Login</a>
+    </li>
+    <li>
+        <a href="#" class="black-text">Register</a>
+    </li>  
+    <li>
+        <a href="#" class="black-text">View Leaderboards</a>
+    </li>
+    <li>
+        <a href="#" class="black-text">Give Feedback</a>
+    </li>
+</ul>
+<a class="dropdown-trigger black-text" href="javascript:void(0);" id="header-dropdown" data-target="header-dropdown-content">
+    <span class="hide-on-small-only">{{appService.getNickname()}}</span>
+    <i class="material-icons right">account_circle</i>
+</a>
