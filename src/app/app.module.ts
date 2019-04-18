@@ -10,7 +10,6 @@ import { AppServiceModule } from "./services/app.service.module";
 import { AppService } from "./services/app.service";
 import { CardComponent } from "./card/card.component";
 import { OnboardingComponent } from "./onboarding/onboarding.component";
-import "hammerjs";
 import { HeaderComponent } from './header/header.component';
 import { HeaderLeftComponent } from './header/header-left/header-left.component';
 import { HeaderCenterComponent } from './header/header-center/header-center.component';
