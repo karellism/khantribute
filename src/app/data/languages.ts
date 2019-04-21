@@ -1,90 +1,90 @@
-export let languages = [ 
+export let languages = [
     {
-        "bld": "svse",
-        "name": "Swedish"
+        'bld': 'svse',
+        'name': 'Swedish'
     }, {
-        "bld" : "es",
-        "name" : "Spanish"
+        'bld' : 'es',
+        'name' : 'Spanish'
     }, {
-        "bld" : "pt",
-        "name" : "Portuguese (Brazilian)"
+        'bld' : 'pt',
+        'name' : 'Portuguese (Brazilian)'
     }, {
-        "bld" : "pt-pt",
-        "name" : "Portuguese (European)"
+        'bld' : 'pt-pt',
+        'name' : 'Portuguese (European)'
     }, {
-        "bld" : "fr",
-        "name" : "French"
+        'bld' : 'fr',
+        'name' : 'French'
     }, {
-        "bld" : "tr",
-        "name" : "Turkish"
+        'bld' : 'tr',
+        'name' : 'Turkish'
     }, {
-        "bld" : "nb",
-        "name" : "Norwegian Bokmål"
+        'bld' : 'nb',
+        'name' : 'Norwegian Bokmål'
     }, {
-        "bld" : "hi",
-        "name" : "Hindi"
+        'bld' : 'hi',
+        'name' : 'Hindi'
     }, {
-        "bld" : "id",
-        "name" : "Indonesian"
+        'bld' : 'id',
+        'name' : 'Indonesian'
     }, {
-        "bld" : "cs",
-        "name" : "Czech"
+        'bld' : 'cs',
+        'name' : 'Czech'
     }, {
-        "bld" : "da",
-        "name" : "Danish"
+        'bld' : 'da',
+        'name' : 'Danish'
     }, {
-        "bld" : "de",
-        "name" : "German"
+        'bld' : 'de',
+        'name' : 'German'
     }, {
-        "bld" : "it",
-        "name" : "Italian"
+        'bld' : 'it',
+        'name' : 'Italian'
     }, {
-        "bld" : "nl",
-        "name" : "Dutch"
+        'bld' : 'nl',
+        'name' : 'Dutch'
     }, {
-        "bld" : "pl",
-        "name" : "Polish"
+        'bld' : 'pl',
+        'name' : 'Polish'
     }, {
-        "bld" : "el",
-        "name" : "Greek"
+        'bld' : 'el',
+        'name' : 'Greek'
     }, {
-        "bld" : "bg",
-        "name" : "Bulgarian"
+        'bld' : 'bg',
+        'name' : 'Bulgarian'
     }, {
-        "bld" : "mn",
-        "name" : "Mongolian"
+        'bld' : 'mn',
+        'name' : 'Mongolian'
     }, {
-        "bld" : "ru",
-        "name" : "Russian"
+        'bld' : 'ru',
+        'name' : 'Russian'
     }, {
-        "bld" : "sr",
-        "name" : "Serbian"
+        'bld' : 'sr',
+        'name' : 'Serbian'
     }, {
-        "bld" : "hy",
-        "name" : "Armenian"
+        'bld' : 'hy',
+        'name' : 'Armenian'
     }, {
-        "bld" : "ur",
-        "name" : "Urdu"
+        'bld' : 'ur',
+        'name' : 'Urdu'
     }, {
-        "bld" : "ar",
-        "name" : "Arabic"
+        'bld' : 'ar',
+        'name' : 'Arabic'
     }, {
-        "bld" : "bn",
-        "name" : "Bengali"
+        'bld' : 'bn',
+        'name' : 'Bengali'
     }, {
-        "bld" : "th",
-        "name" : "Thai"
+        'bld' : 'th',
+        'name' : 'Thai'
     }, {
-        "bld" : "zh-hans",
-        "name" : "Simplified Chinese"
+        'bld' : 'zh-hans',
+        'name' : 'Simplified Chinese'
     }, {
-        "bld" : "ja",
-        "name" : "Japanese"
+        'bld' : 'ja',
+        'name' : 'Japanese'
     }, {
-        "bld" : "ko",
-        "name" : "Korean"
+        'bld' : 'ko',
+        'name' : 'Korean'
     }, {
-        "bld" : "ka",
-        "name" : "Georgian"
+        'bld' : 'ka',
+        'name' : 'Georgian'
     }
 ];

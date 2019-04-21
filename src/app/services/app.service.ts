@@ -1,36 +1,36 @@
-import { Injectable } from "@angular/core";
-import ls from "../util/ls";
-import { lskeys } from "../data/lskeys";
-import { languages } from "../data/languages";
-import { HttpClient } from "@angular/common/http";
-import api from "../data/api";
-import { toQueryString } from "../util/to-query-string";
-import katex from "katex";
+import { Injectable } from '@angular/core';
+import ls from '../util/ls';
+import { lskeys } from '../data/lskeys';
+import { languages } from '../data/languages';
+import { HttpClient } from '@angular/common/http';
+import api from '../data/api';
+import { toQueryString } from '../util/to-query-string';
+import katex from 'katex';
 
-let adjectives = [
-    "Happy",
-    "Sad",
-    "Smart",
-    "Tired",
-    "Green",
-    "Purple",
-    "Small",
-    "Large",
-    "Real",
-    "Weird"
+const adjectives = [
+    'Happy',
+    'Sad',
+    'Smart',
+    'Tired',
+    'Green',
+    'Purple',
+    'Small',
+    'Large',
+    'Real',
+    'Weird'
 ];
 
-let nouns = [
-    "Aardvark",
-    "Buffalo",
-    "Chair",
-    "Dog",
-    "Eagle",
-    "Fountain",
-    "Goat",
-    "Human",
-    "Igloo",
-    "Juniper"
+const nouns = [
+    'Aardvark',
+    'Buffalo',
+    'Chair',
+    'Dog',
+    'Eagle',
+    'Fountain',
+    'Goat',
+    'Human',
+    'Igloo',
+    'Juniper'
 ];
 
 function generateNick(): string {
@@ -38,11 +38,12 @@ function generateNick(): string {
 }
 
 function getInitialLang() {
-    let match = window.location.hostname.match("([^\.]+)\.khantribute\.localgrid\.de")
-    if(match === null) {
-        return parseInt(ls.getItem(lskeys.LANG) || "0"); // Default
+    const match = window.location.hostname.match('([^\.]+)\.khantribute\.localgrid\.de');
+    if (match === null) {
+// tslint:disable-next-line: radix
+        return parseInt(ls.getItem(lskeys.LANG) || '0');
     } else {
-        let langIndex = languages.findIndex((lang) => lang.bld === match[1]);
+        const langIndex = languages.findIndex((lang) => lang.bld === match[1]);
 
         if (langIndex < 0) {
             return 0;
@@ -53,7 +54,7 @@ function getInitialLang() {
 }
 
 @Injectable({
-    providedIn: "root"
+    providedIn: 'root'
 })
 export class AppService {
     private selected: number;
@@ -64,8 +65,8 @@ export class AppService {
     } = {
         score: 0,
         nickname: generateNick(),
-        rank: ""
-    }
+        rank: ''
+    };
     languages = languages;
     constructor(private http: HttpClient) {
         this.setLang(getInitialLang());
@@ -76,8 +77,9 @@ export class AppService {
 
         let bld = this.getLang().bld;
         // Because consistency
-        if (bld === "svse") bld = "sv-SE";
-        this.http.get(api.root + api.user + bld + "?client=" + this.getClientID()).subscribe((data: {nickname: string, num_votes: number}) => {
+        if (bld === 'svse') { bld = 'sv-SE'; }
+// tslint:disable-next-line: max-line-length
+        this.http.get(api.root + api.user + bld + '?client=' + this.getClientID()).subscribe((data: {nickname: string, num_votes: number}) => {
             this.setNickname(data.nickname);
             this.addUserScore(data.num_votes);
         });
@@ -97,7 +99,7 @@ export class AppService {
             this.user.nickname = nick;
             let bld = this.getLang().bld;
             // Because consistency
-            if (bld === "svse") bld = "sv-SE";
+            if (bld === 'svse') { bld = 'sv-SE'; }
             this.http.get(api.root + api.setNick + bld + toQueryString({
                 client: this.getClientID(),
                 nickname: nick
@@ -107,7 +109,7 @@ export class AppService {
         }
     }
     nickIsValid(nick: string): boolean {
-        return typeof nick === "string" && nick.length > 0;
+        return typeof nick === 'string' && nick.length > 0;
     }
     getUserRank(): string {
         return this.user.rank;
@@ -126,7 +128,7 @@ export class AppService {
     }
     getClientID(): string {
         if (!ls.getItem(lskeys.CID)) {
-            let cid = ("" + Math.random()).slice(2);
+            const cid = ('' + Math.random()).slice(2);
             ls.setItem(lskeys.CID, cid);
             return cid;
         }

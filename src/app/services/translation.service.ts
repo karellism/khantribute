@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { AppService } from "./app.service";
-import M from "materialize-css";
-import api from "../data/api";
-import { toQueryString } from "../util/to-query-string";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AppService } from './app.service';
+import M from 'materialize-css';
+import api from '../data/api';
+import { toQueryString } from '../util/to-query-string';
 
-let callbacks: Array<Function> = [];
+const callbacks: Array<Function> = [];
 
 @Injectable({
-    providedIn: "root"
+    providedIn: 'root'
 })
 export class TranslationService {
     private strings: Array<{
@@ -24,7 +24,7 @@ export class TranslationService {
     loadStrings() {
         let bld = this.appService.getLang().bld;
         // Because consistency
-        if (bld === "svse") bld = "sv-SE";
+        if (bld === 'svse') { bld = 'sv-SE'; }
 
         this.http.get(api.root + api.strings + bld + toQueryString({
             client: this.appService.getClientID(),
@@ -47,29 +47,29 @@ export class TranslationService {
     }
     approveString() {
         this.submit(1);
-        M.toast({html: "Approved!"});
+        M.toast({html: 'Approved!'});
     }
     skipString() {
         this.submit(0);
-        M.toast({html: "Skipped"});
+        M.toast({html: 'Skipped'});
     }
     softRejectString() {
         this.submit(-0.09);
-        M.toast({html: "Sent back for review"});
+        M.toast({html: 'Sent back for review'});
     }
     rejectString() {
         this.submit(-1);
-        M.toast({html: "Rejected"});
+        M.toast({html: 'Rejected'});
     }
     onSubmit(fn: Function) {
         callbacks.push(fn);
     }
     private submit(score) {
         let bld = this.appService.getLang().bld;
-        // Because consistency
-        if (bld === "svse") bld = "sv-SE";
+         // Because consistency
+        if (bld === 'svse') { bld = 'sv-SE'; }
 
-        for (let cb of callbacks) {
+        for (const cb of callbacks) {
             cb(score);
         }
 

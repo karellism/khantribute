@@ -1,11 +1,11 @@
 export default {
-    getItem(key) {
+    getItem(key: any) {
         if (localStorage) {
             return localStorage.getItem(key);
         }
         return null;
     },
-    setItem(key, value) {
+    setItem(key: any, value: any) {
         if (localStorage) {
             localStorage.setItem(key, value);
         }
