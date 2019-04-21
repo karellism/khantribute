@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import M from "materialize-css";
+import M from 'materialize-css';
 
 @Component({
-  selector: 'main-header',
+  selector: 'app-khantribute-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })

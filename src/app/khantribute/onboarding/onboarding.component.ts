@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import M from "materialize-css";
-import ls from "../../util/ls";
-import { lskeys } from "../../data/lskeys";
+import M from 'materialize-css';
+import ls from '../../util/ls';
+import { lskeys } from '../../data/lskeys';
 
 @Component({
-  selector: 'onboarding',
+  selector: 'app-khantribute-onboarding',
   templateUrl: './onboarding.component.html',
   styleUrls: ['./onboarding.component.css']
 })
@@ -14,12 +14,12 @@ export class OnboardingComponent implements OnInit {
     public hideModal = false;
     constructor() {}
     ngOnInit() {
-        this.modal = M.Modal.init(document.getElementById("onboarding-modal"), {
+        this.modal = M.Modal.init(document.getElementById('onboarding-modal'), {
             onCloseStart: this.handleModalClose.bind(this)
         });
-        if (!ls.getItem(lskeys.MODAL)) this.modal.open();
+        if (!ls.getItem(lskeys.MODAL)) { this.modal.open(); }
     }
     handleModalClose() {
-        if (this.hideModal) ls.setItem(lskeys.MODAL, true);
+        if (this.hideModal) { ls.setItem(lskeys.MODAL, true); }
     }
 }
