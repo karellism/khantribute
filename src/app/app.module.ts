@@ -20,6 +20,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { MainComponent } from './khantribute/main/main.component';
 import { KhantributeComponent } from './khantribute/khantribute.component';
 
+import { SharedModule } from './shared/shared.module';
 @NgModule({
     declarations: [
         AppComponent,
@@ -40,7 +41,8 @@ import { KhantributeComponent } from './khantribute/khantribute.component';
         BrowserAnimationsModule,
         HttpClientModule,
         FormsModule,
-        AppServiceModule,
+        SharedModule,
+        AppServiceModule
     ],
     providers: [ AppService ],
     bootstrap: [ AppComponent ]
