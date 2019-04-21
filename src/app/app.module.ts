@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ControlsComponent } from './controls/controls.component';
@@ -18,7 +19,6 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { MainComponent } from './khantribute/main/main.component';
 import { KhantributeComponent } from './khantribute/khantribute.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -37,10 +37,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         HttpClientModule,
         FormsModule,
         AppServiceModule,
-        BrowserAnimationsModule
     ],
     providers: [ AppService ],
     bootstrap: [ AppComponent ]
