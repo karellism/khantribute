@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import M from "materialize-css";
+import M from 'materialize-css';
 import { AppService } from "../../../services/app.service";
 
 @Component({
@@ -14,7 +14,7 @@ export class LanguagesHeaderComponent implements OnInit {
     constructor(public appService: AppService) {}
 
     ngOnInit() {
-         M.Dropdown.init(document.getElementById("languages-dropdown"), {
+         M.Dropdown.init(document.getElementById('languages-dropdown'), {
            // alignment: "left",
             constrainWidth: false
         });

@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { TranslationService } from "../services/translation.service";
-import { parseString, toHTML } from "./parser";
-import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
+import { TranslationService } from '../services/translation.service';
+import { parseString, toHTML } from './parser';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 enum PanType {
     HORIZONTAL = 2,
@@ -18,7 +18,7 @@ enum Action {
 }
 
 @Component({
-  selector: 'card',
+  selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
    providers: [
@@ -28,9 +28,9 @@ enum Action {
 
 export class CardComponent implements OnInit {
   public panType: PanType = PanType.NONE;
-    private scrollX: number = 0;
-    private scrollY: number = 0;
-    private lastEnd: number = -Infinity;
+    private scrollX = 0;
+    private scrollY = 0;
+    private lastEnd = -Infinity;
     private startEvt: TouchEvent;
     action: Action = Action.NONE;
     constructor(public translationService: TranslationService, private sanitizer: DomSanitizer, private changeDetector: ChangeDetectorRef) {
@@ -45,9 +45,9 @@ export class CardComponent implements OnInit {
                 // Stop parser errors from ruining UX by just going to the next string that doesn't throw an error
                 console.error(`Error parsing translation string ${this.translationService.currentString().id}`);
                 this.translationService.advance();
-                return this.sanitizer.bypassSecurityTrustHtml("");
+                return this.sanitizer.bypassSecurityTrustHtml('');
             }
-        } else return this.sanitizer.bypassSecurityTrustHtml("");
+        } else { return this.sanitizer.bypassSecurityTrustHtml(''); }
     }
     getOriginalHTML(): SafeHtml {
         if (this.translationService.stringsLeft() > 0) {
@@ -57,9 +57,9 @@ export class CardComponent implements OnInit {
                 // Stop parser errors from ruining UX by just going to the next string that doesn't throw an error
                 console.error(`Error parsing original string ${this.translationService.currentString().id}`);
                 this.translationService.advance();
-                return this.sanitizer.bypassSecurityTrustHtml("");
+                return this.sanitizer.bypassSecurityTrustHtml('');
             }
-        } else return this.sanitizer.bypassSecurityTrustHtml("");
+        } else { return this.sanitizer.bypassSecurityTrustHtml(''); }
     }
     getNextTranslationHTML(): SafeHtml {
         if (this.translationService.stringsLeft() > 1) {
@@ -67,9 +67,9 @@ export class CardComponent implements OnInit {
                 return this.sanitizer.bypassSecurityTrustHtml(toHTML(parseString(this.translationService.nextString().target)));
             } catch {
                 console.error(`Error parsing translation string ${this.translationService.nextString().id}`);
-                return this.sanitizer.bypassSecurityTrustHtml("");
+                return this.sanitizer.bypassSecurityTrustHtml('');
             }
-        } else return this.sanitizer.bypassSecurityTrustHtml("");
+        } else { return this.sanitizer.bypassSecurityTrustHtml(''); }
     }
     getNextOriginalHTML(): SafeHtml {
         if (this.translationService.stringsLeft() > 1) {
@@ -77,14 +77,18 @@ export class CardComponent implements OnInit {
                 return this.sanitizer.bypassSecurityTrustHtml(toHTML(parseString(this.translationService.nextString().source)));
             } catch {
                 console.error(`Error parsing original string ${this.translationService.nextString().id}`);
-                return this.sanitizer.bypassSecurityTrustHtml("");
+                return this.sanitizer.bypassSecurityTrustHtml('');
             }
-        } else return this.sanitizer.bypassSecurityTrustHtml("");
+        } else { return this.sanitizer.bypassSecurityTrustHtml(''); }
     }
     handleSubmit(score) {
-        if (score > 0) this.action = Action.APPROVE;
-        else if (score < 0) this.action = Action.REJECT;
-        else this.action = Action.SKIP;
+        if (score > 0) {
+          this.action = Action.APPROVE;
+        } else if (score < 0) {
+          this.action = Action.REJECT;
+        } else {
+          this.action = Action.SKIP;
+        }
         setTimeout(() => {
             this.action = Action.RESET;
             this.translationService.advance();
@@ -102,9 +106,9 @@ export class CardComponent implements OnInit {
     onTouchMove(evt) {
         evt.stopPropagation();
         evt.preventDefault();
-        if (evt.timeStamp < this.lastEnd + 500) return;
+        if (evt.timeStamp < this.lastEnd + 500) { return; }
 
-        let {touches: [touch]} = evt;
+        const {touches: [touch]} = evt;
 
         if (this.panType === PanType.NONE && evt.timeStamp > this.startEvt.timeStamp + 150) {
             if (Math.abs(this.startEvt.touches[0].clientX - touch.clientX) < Math.abs(this.startEvt.touches[0].clientY - touch.clientY)) {
@@ -113,7 +117,7 @@ export class CardComponent implements OnInit {
                 this.panType = PanType.HORIZONTAL;
             }
         }
-        
+
         if (this.panType === PanType.VERTICAL) {
             document.children[0].scrollTop = window.scrollY - (touch.clientY - this.startEvt.touches[0].clientY) * 0.25;
         } else if (this.panType === PanType.HORIZONTAL) {
@@ -129,7 +133,7 @@ export class CardComponent implements OnInit {
             this.translationService.approveString();
         }
 
-        if (this.panType == PanType.HORIZONTAL) this.lastEnd = evt.timeStamp;
+        if (this.panType === PanType.HORIZONTAL) { this.lastEnd = evt.timeStamp; }
         this.panType = PanType.NONE;
         this.scrollX = 0;
     }
@@ -137,8 +141,8 @@ export class CardComponent implements OnInit {
         return this.scrollX;
     }
     getFeedbackWidth(action) {
-        if (action == "approve" && this.scrollX > 0) return this.scrollX;
-        if (action == "reject" && this.scrollX < 0) return -this.scrollX;
+        if (action === 'approve' && this.scrollX > 0) { return this.scrollX; }
+        if (action === 'reject' && this.scrollX < 0) { return -this.scrollX; }
         return 0;
     }
     getScrollY() {
@@ -146,6 +150,6 @@ export class CardComponent implements OnInit {
     }
 
    ngOnInit() {
-  } 
+  }
 
 }

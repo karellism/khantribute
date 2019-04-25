@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HeaderLeftComponent } from './header-left.component';
+import { LanguagesHeaderComponent } from './languages-header.component';
 
-describe('HeaderLeftComponent', () => {
-  let component: HeaderLeftComponent;
-  let fixture: ComponentFixture<HeaderLeftComponent>;
+describe('LanguagesHeaderComponent', () => {
+  let component: LanguagesHeaderComponent;
+  let fixture: ComponentFixture<LanguagesHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderLeftComponent ]
+      declarations: [ LanguagesHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderLeftComponent);
+    fixture = TestBed.createComponent(LanguagesHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

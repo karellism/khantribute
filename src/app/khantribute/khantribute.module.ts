@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { LanguagesHeaderComponent } from './header/languages-header/languages-header.component';
 import { MenuHeaderComponent } from './header/menu-header/menu-header.component';
 
+import { ControlsComponent } from './controls/controls.component';
 import { OnboardingComponent } from './onboarding/onboarding.component';
 
 import { KhantributeRoutingModule } from './khantribute-routing.module';
@@ -23,7 +24,8 @@ import { KhantributeRoutingModule } from './khantribute-routing.module';
     HeaderComponent,
     LanguagesHeaderComponent,
     MenuHeaderComponent,
+    ControlsComponent,
     OnboardingComponent
   ]
 })
-export class HeroesModule {}
+export class KhantributeModule {}
