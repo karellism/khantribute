@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material/material.module';
 
 /* App Root */
 import { AppComponent } from './app.component';
 
 /* Feature Modules */
+
 import { HeaderModule } from './header/header.module';
 import { UserModule } from './user/user.module';
 import { AppServiceModule } from './services/app.service.module';
@@ -32,8 +34,11 @@ import { FeedbackComponent } from './feedback/feedback.component';
    ],
    imports: [
       BrowserModule,
-      BrowserAnimationsModule,
       HttpClientModule,
+      FormsModule,
+      ReactiveFormsModule,
+      BrowserAnimationsModule,
+      MaterialModule,
       FormsModule,
       HeaderModule,
       UserModule,

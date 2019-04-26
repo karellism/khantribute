@@ -1,4 +1,4 @@
-import * as katex from "katex";
+import * as katex from 'katex';
 
 export enum Format {
     BOLD,
