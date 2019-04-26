@@ -1,4 +1,4 @@
-<ul id="user-dropdown-content" class="dropdown-content">
+ <ul id="user-dropdown-content" class="dropdown-content">
     <li class="nickname">
         <span class="black-text">{{appService.getNickname()}}
             <span class="badge blue white-text" data-badge-caption="Points">{{appService.getUserScore()}}</span>
@@ -13,7 +13,7 @@
     </li>
     <li>
         <a href="#" class="black-text">Register</a>
-    </li>  
+    </li>
     <li>
         <a href="../leaderboard.html" class="black-text">View Leaderboards</a>
     </li>
@@ -25,3 +25,10 @@
     <span class="hide-on-small-only">{{appService.getNickname()}}</span>
     <i class="material-icons right">account_circle</i>
 </a>
+
+<!-- <button mat-button [matMenuTriggerFor]="belowMenu">Below</button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+ -->
