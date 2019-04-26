@@ -4,33 +4,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { KhantributeModule } from './khantribute/khantribute.module';
-
+/* App Root */
 import { AppComponent } from './app.component';
-import { ControlsComponent } from './controls/controls.component';
 
+/* Feature Modules */
+import { HeaderModule } from './header/header.module';
+import { KhantributeModule } from './khantribute/khantribute.module';
 import { AppServiceModule } from './services/app.service.module';
 
+/* Routing Module */
+import { AppRoutingModule } from './app-routing.module';
+
 import { CardComponent } from './card/card.component';
+import { ControlsComponent } from './controls/controls.component';
 import { OnboardingComponent } from './onboarding/onboarding.component';
-import { HeaderComponent } from './header/header.component';
-import { HeaderLeftComponent } from './header/header-left/header-left.component';
-import { HeaderCenterComponent } from './header/header-center/header-center.component';
-import { HeaderRightComponent } from './header/header-right/header-right.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
-import { SharedModule } from './shared/shared.module';
+
 @NgModule({
     declarations: [
         AppComponent,
         ControlsComponent,
         CardComponent,
         OnboardingComponent,
-        HeaderComponent,
-        HeaderLeftComponent,
-        HeaderCenterComponent,
-        HeaderRightComponent,
         LeaderboardComponent,
         FeedbackComponent
     ],
@@ -39,9 +36,10 @@ import { SharedModule } from './shared/shared.module';
         BrowserAnimationsModule,
         HttpClientModule,
         FormsModule,
-        SharedModule,
+        HeaderModule,
         KhantributeModule,
-        AppServiceModule
+        AppServiceModule,
+        AppRoutingModule
     ],
     providers: [ ],
     bootstrap: [ AppComponent ]
