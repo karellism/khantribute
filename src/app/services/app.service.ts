@@ -5,7 +5,7 @@ import { languages } from '../data/languages';
 import { HttpClient } from '@angular/common/http';
 import api from '../data/api';
 import { toQueryString } from '../util/to-query-string';
-import katex from 'katex';
+import * as katex from "katex";
 
 const adjectives = [
     'Happy',
