@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { ControlsComponent } from './controls/controls.component';
 
 import { AppServiceModule } from './services/app.service.module';
-import { AppService } from './services/app.service';
+
 import { CardComponent } from './card/card.component';
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import { HeaderComponent } from './header/header.component';
@@ -43,7 +43,7 @@ import { SharedModule } from './shared/shared.module';
         KhantributeModule,
         AppServiceModule
     ],
-    providers: [ AppService ],
+    providers: [ ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }

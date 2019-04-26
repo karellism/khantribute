@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslationService } from "../services/translation.service";
+import { TranslationService } from '../services/translation.service';
 
 @Component({
-  selector: 'controls',
+  selector: 'app-controls',
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.css'],
   providers: [ TranslationService ]
