@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 
 /* Feature Modules */
 import { HeaderModule } from './header/header.module';
-import { KhantributeModule } from './khantribute/khantribute.module';
+import { UserModule } from './user/user.module';
 import { AppServiceModule } from './services/app.service.module';
 
 /* Routing Module */
@@ -21,27 +21,28 @@ import { OnboardingComponent } from './onboarding/onboarding.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
-
 @NgModule({
-    declarations: [
-        AppComponent,
-        ControlsComponent,
-        CardComponent,
-        OnboardingComponent,
-        LeaderboardComponent,
-        FeedbackComponent
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        FormsModule,
-        HeaderModule,
-        KhantributeModule,
-        AppServiceModule,
-        AppRoutingModule
-    ],
-    providers: [ ],
-    bootstrap: [ AppComponent ]
+   declarations: [
+      AppComponent,
+      ControlsComponent,
+      CardComponent,
+      OnboardingComponent,
+      LeaderboardComponent,
+      FeedbackComponent,
+   ],
+   imports: [
+      BrowserModule,
+      BrowserAnimationsModule,
+      HttpClientModule,
+      FormsModule,
+      HeaderModule,
+      UserModule,
+      AppServiceModule,
+      AppRoutingModule
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }
