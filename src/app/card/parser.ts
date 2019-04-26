@@ -1,59 +1,59 @@
-import katex from "katex";
+import katex from 'katex';
 
 export enum Format {
     BOLD,
     ITALIC,
     KATEX,
     STRIKE
-};
+}
 
-type Token = {
-    formats: Set<Format>,
-    content: string,
-    url: string
+interface Token {
+    formats: Set<Format>;
+    content: string;
+    url: string;
 }
 
 export function parseString(s: string): Token[] {
-    let chars = s.replace(/(\\n)+/g, "\n").replace(/\!\[\]\(.+?\)/g, "\\[IMAGE]").replace(/\[\[☃.+?\]\]/, "\\[INTERACTIVE ELEMENT]").split("");
-    
-    let formats: Set<Format> = new Set();
-    let tokens: Token[] = [{
-        content: "",
-        url: "",
+    let chars = s.replace(/(\\n)+/g, '\n').replace(/\!\[\]\(.+?\)/g, '\\[IMAGE]').replace(/\[\[☃.+?\]\]/, '\\[INTERACTIVE ELEMENT]').split('');
+
+    const formats: Set<Format> = new Set();
+    const tokens: Token[] = [{
+        content: '',
+        url: '',
         formats: new Set(formats)
     }];
     // Pre-extract the links
-    let links: Array<{url: string, text: string, length: number}> = [];
+    const links: Array<{url: string, text: string, length: number}> = [];
     s.replace(/\[(.*?)\]\((.*?)\)/, (match, url, text) => {
         links.push({
             url: url,
             text: text,
             length: match.length
         });
-        return "";
+        return '';
     });
 
     while (chars.length > 0) {
         let nFormat: Format;
         switch (chars[0]) {
-            case "*":
+            case '*':
                 nFormat = Format.ITALIC;
-                if (chars[1] === "*") {
+                if (chars[1] === '*') {
                     chars.shift();
                     nFormat = Format.BOLD;
                 }
                 break;
-            case "$":
+            case '$':
                 nFormat = Format.KATEX;
                 break;
-            case "~":
-                if (chars[1] === "~") {
+            case '~':
+                if (chars[1] === '~') {
                     chars.shift();
                     nFormat = Format.STRIKE;
                 }
                 break;
-            case "!":
-                let link = links.shift();
+            case '!':
+                const link = links.shift();
 
                 tokens.push({
                     content: link.text,
@@ -63,12 +63,13 @@ export function parseString(s: string): Token[] {
 
                 chars = chars.slice(link.length);
                 break;
-            case "\\":
+            case '\\':
                 chars.shift();
 
                 if (formats.has(Format.KATEX)) {
                     tokens[tokens.length - 1].content += chars.shift();
                 }
+                break;
             default:
                 tokens[tokens.length - 1].content += chars[0];
         }
@@ -83,8 +84,8 @@ export function parseString(s: string): Token[] {
             }
 
             tokens.push({
-                content: "",
-                url: "",
+                content: '',
+                url: '',
                 formats: new Set(formats)
             });
         }
@@ -95,22 +96,22 @@ export function parseString(s: string): Token[] {
 
 export function toHTML(tokens: Token[]): string {
     return tokens.map(({formats, content, url}) => {
-        let start = "",
-            end = "";
-        
+        let start = '',
+            end = '';
+
         if (formats.has(Format.BOLD)) {
-            start += "<b>";
-            end = "</b>" + end;
+            start += '<b>';
+            end = '</b>' + end;
         }
         if (formats.has(Format.ITALIC)) {
-            start += "<i>";
-            end = "</i>" + end;
+            start += '<i>';
+            end = '</i>' + end;
         }
         if (formats.has(Format.STRIKE)) {
-            start += "<del>";
-            end = "</del>" + end;
+            start += '<del>';
+            end = '</del>' + end;
         }
-        
+
         if (formats.has(Format.KATEX)) {
             return start + katex.renderToString(content, {
                 throwOnError: false
@@ -120,5 +121,5 @@ export function toHTML(tokens: Token[]): string {
         } else {
             return start + content + end;
         }
-    }).join("");
+    }).join('');
 }
