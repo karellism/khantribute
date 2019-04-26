@@ -4,6 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { KhantributeModule } from './khantribute/khantribute.module';
+
 import { AppComponent } from './app.component';
 import { ControlsComponent } from './controls/controls.component';
 
@@ -17,8 +19,6 @@ import { HeaderCenterComponent } from './header/header-center/header-center.comp
 import { HeaderRightComponent } from './header/header-right/header-right.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-import { MainComponent } from './khantribute/main/main.component';
-import { KhantributeComponent } from './khantribute/khantribute.component';
 
 import { SharedModule } from './shared/shared.module';
 @NgModule({
@@ -32,9 +32,7 @@ import { SharedModule } from './shared/shared.module';
         HeaderCenterComponent,
         HeaderRightComponent,
         LeaderboardComponent,
-        FeedbackComponent,
-        MainComponent,
-        KhantributeComponent
+        FeedbackComponent
     ],
     imports: [
         BrowserModule,
@@ -42,6 +40,7 @@ import { SharedModule } from './shared/shared.module';
         HttpClientModule,
         FormsModule,
         SharedModule,
+        KhantributeModule,
         AppServiceModule
     ],
     providers: [ AppService ],
