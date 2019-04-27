@@ -1,25 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import M from 'materialize-css';
-import ls from '../util/ls';
-import { lskeys } from '../data/lskeys';
+import { Component, OnInit } from "@angular/core";
+import * as M from "materialize-css";
+import ls from "../util/ls";
+import { lskeys } from "../data/lskeys";
 
 @Component({
-  selector: 'app-onboarding',
-  templateUrl: './onboarding.component.html',
-  styleUrls: ['./onboarding.component.css']
+  selector: "app-onboarding",
+  templateUrl: "./onboarding.component.html",
+  styleUrls: ["./onboarding.component.css"]
 })
 export class OnboardingComponent implements OnInit {
-
   private modal;
-    public hideModal = false;
-    constructor() {}
-    ngOnInit() {
-        this.modal = M.Modal.init(document.getElementById('onboarding-modal'), {
-            onCloseStart: this.handleModalClose.bind(this)
-        });
-        if (!ls.getItem(lskeys.MODAL)) { this.modal.open(); }
+  public hideModal = false;
+  constructor() {}
+  ngOnInit() {
+    this.modal = M.Modal.init(document.getElementById("onboarding-modal"), {
+      onCloseStart: this.handleModalClose.bind(this)
+    });
+    if (!ls.getItem(lskeys.MODAL)) {
+      this.modal.open();
     }
-    handleModalClose() {
-        if (this.hideModal) { ls.setItem(lskeys.MODAL, true); }
+  }
+  handleModalClose() {
+    if (this.hideModal) {
+      ls.setItem(lskeys.MODAL, true);
     }
+  }
 }
