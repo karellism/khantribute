@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AppService } from './app.service';
-import M from 'materialize-css';
+import * as M from 'materialize-css';
 import api from '../data/api';
 import { toQueryString } from '../util/to-query-string';
 
