@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+/* Modules */
+
+import { SharedModule } from './shared//shared.module';
+
 /* App Root */
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
@@ -16,9 +20,7 @@ import { HeaderModule } from './header/header.module';
 import { UserModule } from './user/user.module';
 import { MaterialModule } from './material/material.module';
 import { AppServiceModule } from './services/app.service.module';
-
-/* Routing Module */
-import { AppRoutingModule } from './app-routing.module';
+import { RoutingModule } from './routing/routing.module';
 
 @NgModule({
   declarations: [
@@ -33,12 +35,12 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    SharedModule,
     MaterialModule,
-    FormsModule,
     HeaderModule,
     UserModule,
     AppServiceModule,
-    AppRoutingModule
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
