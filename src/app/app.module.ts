@@ -20,8 +20,7 @@ import { HeaderModule } from './header/header.module';
 import { UserModule } from './user/user.module';
 import { MaterialModule } from './material/material.module';
 import { AppServiceModule } from './services/app.service.module';
-import { RoutingModule } from './routing/routing.module';
-
+/* import { RoutingModule } from './routing/routing.module'; */
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +38,8 @@ import { RoutingModule } from './routing/routing.module';
     MaterialModule,
     HeaderModule,
     UserModule,
-    AppServiceModule,
-    RoutingModule
+    AppServiceModule
+    /* RoutingModule */
   ],
   providers: [],
   bootstrap: [AppComponent]
