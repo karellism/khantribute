@@ -2,13 +2,14 @@
 
 ## Uses
 
-* angular 7.2.13
+* angular 8.2.5
 * core-js 2.6.5
 * hammerjs 2.0.8
 * katex 0.10.1
+* ng-katex 1.2.0
 * materialize-css 1.0.0
-* rxjs 6.4.0
-* zone.js 0.8.29
+* rxjs 6.5.3
+* zone.js 0.9.1
 
 ## Original README file
 
